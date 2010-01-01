@@ -50,6 +50,8 @@ setInterval(devut, 1000); //Demo interval  END of Demo bar chart
 	function removeone(){
 		document.getElementsByClassName("indexofinput")[collector.length-1].remove();
 		collector.pop();
+		compute();
+
 		console.log(collector);	}
 
 //function compute is a very classic function that plots the graph
