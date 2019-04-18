@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> BAR CHART</title>
+	<link rel="stylesheet" type="text/css" href="barchart.css">
+</head>
+<body><center>
+	<header>
+	<h1>Welcome to Auto Bar chart  Analyser!</h1>
+<!-- Demo canvas -->
+	<canvas id="demo" width="300" height="320" style="background: linear-gradient(to right, rgba(0,0,0,0.8),rgba(0,0,0,0.7),rgba(0,0,0,0.8)); border:2px solid yellow; border-style: inset;"></canvas>
+</header>
+	<h3>Let's get started!</h3>
+<!-- Real canvas -->
+<div id="dishow">
+	<canvas id="real" width="200" height="200" style="background: linear-gradient(to right, rgba(0,0,0,0.8),rgba(0,0,0,0.7),rgba(0,0,0,0.8)); border:2px solid yellow; border-style: inset;"></canvas><br>
+	<label><b>Enter the number of data you want to analyse and click Many button below or you can click on Add one button to process the data manually.</b></label> <br>
+	<input type="number" id="gen" title="Enter the number of data to generate"> <br>
+	<div id="spcont"></div>
+	<button>Many</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button>Add one</button> 
+
+
+</div>	
+</center>
+</body>
+	<script src="barchart.js">	</script>
+</html>
