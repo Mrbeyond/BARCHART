@@ -22,4 +22,14 @@
 		var perf=rel.getContext("2d");
 		var w=rel.width, h=rel.height;
 
-	function 
+		var collector=[];
+	function many(){
+		for (var i = 0; i < gen.value; i++) {addone();} }
+
+	function addone(){
+			var holder= document.createElement("input");
+			var identify= document.createAttribute("class");
+			identify.value="indexofinput";
+			holder.setAttributeNode(identify);
+			inputboxcontainer.appendChild(holder);
+			collector.push("");  console.log(collector);}	
