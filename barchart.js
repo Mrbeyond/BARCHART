@@ -24,12 +24,29 @@
 
 		var collector=[];
 	function many(){
+		collector=[]; inputboxcontainer.innerHTML="";
 		for (var i = 0; i < gen.value; i++) {addone();} }
 
 	function addone(){
 			var holder= document.createElement("input");
-			var identify= document.createAttribute("class");
-			identify.value="indexofinput";
-			holder.setAttributeNode(identify);
+			holder.setAttribute( "class", 'indexofinput');
 			inputboxcontainer.appendChild(holder);
-			collector.push("");  console.log(collector);}	
+			collector.push("");  console.log(collector);}   
+
+	function removeone(){
+		document.getElementsByClassName("indexofinput")[collector.length-1].remove();
+		collector.pop();
+		console.log(collector);
+	}
+		var max='';
+	function compute(){
+						max=-Infinity
+				for (var i = 0; i < collector.length; i++) {
+					if (document.getElementsByClassName("indexofinput")[i].value==""){
+						document.getElementsByClassName("indexofinput")[i].value=0;}
+					collector[i]=document.getElementsByClassName("indexofinput")[i].value;
+					if(collector[i]>max){max=collector[i]}
+				} console.log(collector); /*maximum();*/console.log(max)}
+
+
+
