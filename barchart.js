@@ -18,9 +18,10 @@
 
 		 setInterval(devut, 1000); //Demo interval
 
-	var rel=document.getElementById('real'); //REAL CANVAS
+ //REAL CANVAS SECTION		REAL CANVAS SECTION		REAL CANVAS SECTION		REAL CANVAS SECTION
+	var rel=document.getElementById('real');
 		var perf=rel.getContext("2d");
-		var w=rel.width, h=rel.height;
+		
 
 		var collector=[];
 	function many(){
@@ -36,17 +37,24 @@
 	function removeone(){
 		document.getElementsByClassName("indexofinput")[collector.length-1].remove();
 		collector.pop();
-		console.log(collector);
-	}
-		var max='';
+		console.log(collector);	}
+		
+		var w,h, max='';
 	function compute(){
-						max=-Infinity
-				for (var i = 0; i < collector.length; i++) {
+						max=-Infinity;
+					rel.width= (collector.length+1)*50+50; w=rel.width;
+					rel.height=340; h=rel.height;
+				for (var i = 0; i < collector.length; i++){
 					if (document.getElementsByClassName("indexofinput")[i].value==""){
 						document.getElementsByClassName("indexofinput")[i].value=0;}
 					collector[i]=document.getElementsByClassName("indexofinput")[i].value;
-					if(collector[i]>max){max=collector[i]}
-				} console.log(collector); /*maximum();*/console.log(max)}
+					if(collector[i]>max){max=collector[i]};
+				} console.log(collector); console.log(max);
+		perf.moveTo(10,0);perf.lineTo(10,h-40);perf.lineTo(w,h-40);perf.strokeStyle="white";perf.stroke();
+			perf1(0,0,10,99); perf2(0,100,10,100); perf3(0,201,10,100);
+		}
 
-
+	var perf1= function(a,b,c,d){perf.fillStyle="green"; perf.fillRect(a,b,c,d);}
+	var perf2= function(a,b,c,d){perf.fillStyle="yellow"; perf.fillRect(a,b,c,d);}
+	var perf3= function(a,b,c,d){perf.fillStyle="red"; perf.fillRect(a,b,c,d);}
 
