@@ -20,17 +20,19 @@
 
  //REAL CANVAS SECTION		REAL CANVAS SECTION		REAL CANVAS SECTION		REAL CANVAS SECTION
 	var rel=document.getElementById('real');
-		var perf=rel.getContext("2d");
-		
+		var perf=rel.getContext("2d");		
 
 		var collector=[];
 	function many(){
+		if (gen.value !=="" || gen.value >=0 ) {
 		collector=[]; inputboxcontainer.innerHTML="";
-		for (var i = 0; i < gen.value; i++) {addone();} }
+		for (var i = 0; i < gen.value; i++) {addone();}}
+		else{alert('Please enter a valid number');} 			}
 
 	function addone(){
 			var holder= document.createElement("input");
 			holder.setAttribute( "class", 'indexofinput');
+			holder.setAttribute( "type", "number");
 			inputboxcontainer.appendChild(holder);
 			collector.push("");  console.log(collector);}   
 
@@ -38,23 +40,28 @@
 		document.getElementsByClassName("indexofinput")[collector.length-1].remove();
 		collector.pop();
 		console.log(collector);	}
-		
-		var w,h, max='';
+
 	function compute(){
-						max=-Infinity;
-					rel.width= (collector.length+1)*50+50; w=rel.width;
+					var w,h,j= 20, max= -Infinity;
+					rel.width= (collector.length+1)*60; w=rel.width;
 					rel.height=340; h=rel.height;
-				for (var i = 0; i < collector.length; i++){
-					if (document.getElementsByClassName("indexofinput")[i].value==""){
+				for (var i= 0; i < collector.length; i++){
+					if (document.getElementsByClassName("indexofinput")[i].value===""){
 						document.getElementsByClassName("indexofinput")[i].value=0;}
 					collector[i]=document.getElementsByClassName("indexofinput")[i].value;
-					if(collector[i]>max){max=collector[i]};
-				} console.log(collector); console.log(max);
-		perf.moveTo(10,0);perf.lineTo(10,h-40);perf.lineTo(w,h-40);perf.strokeStyle="white";perf.stroke();
+					if(Number(collector[i]) > max){ max = Number(collector[i]); } }
+				 for (var i = 0; i< collector.length; i++ ) {
+				 var scale= ((300/max)*0.95), b= Number(collector[i])*scale; 
+			 	if (b>((2/3)*(300))){perf.fillStyle="green"; perf.fillRect(j,h-40,50,-b);}
+			if (b>=((1/3)*(300)) && b<=((2/3)*(300))){perf.fillStyle="yellow"; perf.fillRect(j,h-40,50,-b);} 
+				else{if (b<((1/3)*(300))) {perf.fillStyle="red"; perf.fillRect(j,h-40,50,-b);}};
+			perf.strokeStyle="white"; perf.font="17px century gothic"; perf.strokeText(collector[i],j+10,h-20);
+				j=j+60;}
+			 console.log(max);console.log(collector); perf.strokeStyle="white";
+		perf.moveTo(10,0);perf.lineTo(10,h-40);perf.lineTo(w,h-40);perf.stroke();
 			perf1(0,0,10,99); perf2(0,100,10,100); perf3(0,201,10,100);
 		}
 
 	var perf1= function(a,b,c,d){perf.fillStyle="green"; perf.fillRect(a,b,c,d);}
 	var perf2= function(a,b,c,d){perf.fillStyle="yellow"; perf.fillRect(a,b,c,d);}
 	var perf3= function(a,b,c,d){perf.fillStyle="red"; perf.fillRect(a,b,c,d);}
-
